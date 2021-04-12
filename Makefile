@@ -12,3 +12,8 @@ package-install:
 
 lint:
 	poetry run flake8 gendiff
+
+test:
+	env PYTHONPATH=. poetry run pytest tests
+
+.PHONY: test

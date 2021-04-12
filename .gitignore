@@ -3,4 +3,4 @@
 dist
 gendiff/__pycache__
 gendiff/scripts/__pycache__
-11
+tests/__pycache__
