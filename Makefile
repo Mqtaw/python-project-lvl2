@@ -16,4 +16,7 @@ lint:
 test:
 	env PYTHONPATH=. poetry run pytest tests
 
+test-cov:
+	env PYTHONPATH=. poetry run pytest --cov gendiff tests/ --cov-report xml
+
 .PHONY: test
