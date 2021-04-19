@@ -49,7 +49,7 @@ def make_string_with_flag_updated(source_value, key, offset):
     if not isinstance(source_value['new_value'], dict):
         temp_string += '{}+ {}: {}\n'.format((' ' * offset), key, new_value)
     else:
-        temp_string = '{}- {}: {}\n'.format((offset * ' '), key, '{')
+        temp_string = '{}+ {}: {}\n'.format((offset * ' '), key, '{')
         temp_string += make_string_from_key_without_flag(new_value,
                                                          offset + 6)
         temp_string += '{}{}\n'.format((offset + 2) * ' ', '}')
