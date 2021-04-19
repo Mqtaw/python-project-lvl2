@@ -6,3 +6,5 @@ gendiff/scripts/__pycache__
 tests/__pycache__
 .coverage
 coverage.xml
+gendiff/formats/__pycache__
+tests/fixtures/__pycache__
