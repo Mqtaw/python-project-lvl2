@@ -1,6 +1,7 @@
 import argparse
 from gendiff.parse import parse
 from gendiff.formats.stylish import stylish
+from gendiff.formats.plain import plain
 
 
 def createParser():
@@ -15,6 +16,8 @@ def createParser():
 def check_format(format):
     if format == 'stylish':
         return stylish
+    if format == 'plain':
+        return plain
 
 
 def generate_diff(path_to_file1, path_to_file2, format='stylish'):
