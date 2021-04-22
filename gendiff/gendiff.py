@@ -2,6 +2,7 @@ import argparse
 from gendiff.parse import parse
 from gendiff.formats.stylish import stylish
 from gendiff.formats.plain import plain
+from gendiff.formats.json import json_string
 
 
 def createParser():
@@ -18,6 +19,8 @@ def check_format(format):
         return stylish
     if format == 'plain':
         return plain
+    if format == 'json':
+        return json_string
 
 
 def generate_diff(path_to_file1, path_to_file2, format='stylish'):

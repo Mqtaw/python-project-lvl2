@@ -35,12 +35,13 @@ def make_string_from_key_with_flag(source_value, key):
 
 
 def convert_value(value):
+    res = '\'{}\''.format(value)
     if value is False:
-        return 'false'
+        res = 'false'
     if value is True:
-        return 'true'
+        res = 'true'
     if value is None:
-        return 'null'
+        res = 'null'
     if isinstance(value, dict):
-        return '[complex value]'
-    return '\'{}\''.format(value)
+        res = '[complex value]'
+    return res

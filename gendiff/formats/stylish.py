@@ -71,21 +71,22 @@ def make_string_from_key_without_flag(source_value, offset):
 
 
 def convert_if_bool_or_none(value):
+    res = value
     if value is False:
-        return 'false'
+        res = 'false'
     if value is True:
-        return 'true'
+        res = 'true'
     if value is None:
-        return 'null'
-    return value
+        res = 'null'
+    return res
 
 
 def convert_flag(flag):
+    res = '  '
     if flag == 'add':
-        return '+'
+        res = '+'
     elif flag == 'del':
-        return '-'
+        res = '-'
     elif flag == 'same':
-        return ' '
-    else:
-        return '  '
+        res = ' '
+    return res
