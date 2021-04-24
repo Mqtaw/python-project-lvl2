@@ -39,20 +39,17 @@ def make_string_with_flag_updated(source_value, key, offset):
     temp_string = ''
     old_value = convert_if_bool_or_none(source_value['old_value'])
     new_value = convert_if_bool_or_none(source_value['new_value'])
-    if not isinstance(source_value['old_value'], dict):
-        temp_string += '{}- {}: {}\n'.format((' ' * offset), key, old_value)
-    else:
-        temp_string = '{}- {}: {}\n'.format((offset * ' '), key, '{')
-        temp_string += make_string_from_key_without_flag(old_value,
-                                                         offset + 6)
-        temp_string += '{}{}\n'.format((offset + 2) * ' ', '}')
-    if not isinstance(source_value['new_value'], dict):
-        temp_string += '{}+ {}: {}\n'.format((' ' * offset), key, new_value)
-    else:
-        temp_string = '{}+ {}: {}\n'.format((offset * ' '), key, '{')
-        temp_string += make_string_from_key_without_flag(new_value,
-                                                         offset + 6)
-        temp_string += '{}{}\n'.format((offset + 2) * ' ', '}')
+    for value_flag in [{'value': old_value, 'flag': '-'},
+                       {'value': new_value, 'flag': '+'}]:
+        if not isinstance(value_flag['value'], dict):
+            temp_string += '{}{} {}: {}\n'.format(
+                (' ' * offset), value_flag['flag'], key, value_flag['value'])
+        else:
+            temp_string = '{}{} {}: {}\n'.format(
+                (offset * ' '), value_flag['flag'], key, '{')
+            temp_string += make_string_from_key_without_flag(
+                value_flag['value'], offset + 6)
+            temp_string += '{}{}\n'.format((offset + 2) * ' ', '}')
     return temp_string
 
 
