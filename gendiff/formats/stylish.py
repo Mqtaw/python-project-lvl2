@@ -21,6 +21,7 @@ def make_string_from_key_with_flag(source_value, key, offset):
         temp_string += '{}{}\n'.format((offset + 2) * ' ', '}')
         return temp_string
     if source_value['flag'] == 'updated':
+        # return '{}{}'.format(source_value, key)
         return make_string_with_flag_updated(source_value, key, offset)
     if not isinstance(source_value['value'], dict):
         return '{}{} {}: {}\n'.format(
@@ -45,7 +46,7 @@ def make_string_with_flag_updated(source_value, key, offset):
             temp_string += '{}{} {}: {}\n'.format(
                 (' ' * offset), value_flag['flag'], key, value_flag['value'])
         else:
-            temp_string = '{}{} {}: {}\n'.format(
+            temp_string += '{}{} {}: {}\n'.format(
                 (offset * ' '), value_flag['flag'], key, '{')
             temp_string += make_string_from_key_without_flag(
                 value_flag['value'], offset + 6)
