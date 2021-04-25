@@ -6,4 +6,5 @@ def test():
         response = f.read()
         f.close()
         print(response)
-    assert generate_diff('tests/fixtures/file1.yml', 'tests/fixtures/file2.yml') == response
+    assert generate_diff('tests/fixtures/file1.yml',
+                         'tests/fixtures/file2.yml') == response

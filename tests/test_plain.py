@@ -6,7 +6,6 @@ def test():
         response = f.read()
         f.close()
         print(response)
-    assert generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json', format='plain') == response
-
-
-
+    assert generate_diff('tests/fixtures/file1.json',
+                         'tests/fixtures/file2.json',
+                         format='plain') == response
